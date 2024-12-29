@@ -1,0 +1,243 @@
+<!-- Responsive Navigation Bar to If click handbracker Open the side bar navigation -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", serif;
+        }
+
+        body {
+            margin-top: 50px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #ff7979;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 500;
+            color: white;
+        }
+
+        .header button {
+            width: 50px;
+            flex-shrink: 0;
+            background: none;
+            border: none;
+            outline: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 10px;
+        }
+
+        .bar {
+            background-color: #fff;
+            height: 3px;
+            width: 100%;
+            border-radius: 100px;
+        }
+
+        .links {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            height: 100vh;
+            width: 250px;
+            z-index: 2;
+        }
+
+        .link {
+            display: flex;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: #ff7979;
+            font-size: 17px;
+        }
+
+        .link.active,
+        .link:hover {
+            background-color: #ff7979;
+            color: #fff;
+        }
+
+        .links {
+            transform: translatex(-250px);
+            transition: 0.2s;
+        }
+
+        .open .links {
+            transform: translatex(0px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-overlay {
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            backdrop-filter: blur(2px);
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .open .nav-overlay {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .content {
+            padding: 10px;
+        }
+
+        .content h3 {
+            padding: 14px 0px;
+        }
+
+        .content p {
+            text-align: justify;
+            text-indent: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">Tutor Joes's</div>
+        <button id="btnNav" type="button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </div>
+    <div class="side-nav">
+        <div class="links">
+            <a href="#" class="link active">Home</a>
+            <a href="#" class="link">Products</a>
+            <a href="#" class="link">Downloads</a>
+            <a href="#" class="link">Abouts</a>
+            <a href="#" class="link">Contact</a>
+        </div>
+        <div class="nav-overlay"></div>
+    </div>
+    <div class="content">
+        <h3>Page Title</h3>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus atque vel quia rerum sunt labore consequuntur
+            est temporibus perspiciatis placeat doloremque reiciendis, excepturi facilis nemo sequi ad iure magnam et.
+            Magnam officia, consequatur, aut sit impedit iusto magni ratione cupiditate dolorum tempore enim distinctio
+            itaque explicabo, saepe officiis ullam fuga expedita quis accusamus culpa laboriosam aliquid quisquam?
+            Corrupti et quis, asperiores voluptatibus optio necessitatibus alias consequatur cumque iusto obcaecati ea
+            neque illum praesentium reiciendis qui ab deleniti consectetur eos totam ad. Reprehenderit exercitationem
+            nemo, quam nesciunt blanditiis earum, et repellat tempora obcaecati doloribus voluptate quia! Repudiandae
+            atque voluptatibus culpa assumenda id nisi mollitia quia architecto numquam, eius eveniet ab. Ut porro vitae
+            eius molestias magni repellendus sed nemo autem totam dolores quas qui cumque pariatur, distinctio optio
+            velit vero deleniti obcaecati. Reiciendis laboriosam officiis quidem fuga a dicta quia optio nesciunt velit
+            deleniti expedita distinctio nihil alias doloremque dolorum asperiores dolorem, perferendis animi nisi
+            doloribus ex tenetur voluptate voluptates pariatur? Similique nostrum earum voluptatibus autem quasi saepe
+            itaque consequatur unde? Eius odit ipsa, repellat maxime excepturi possimus aut mollitia nisi numquam.
+            Veniam ipsam dicta, ab atque eos ipsa voluptatum perspiciatis dolorem quisquam, ullam dolore iusto sed unde
+            quibusdam aut. Rerum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus atque vel quia rerum sunt labore consequuntur
+            est temporibus perspiciatis placeat doloremque reiciendis, excepturi facilis nemo sequi ad iure magnam et.
+            Magnam officia, consequatur, aut sit impedit iusto magni ratione cupiditate dolorum tempore enim distinctio
+            itaque explicabo, saepe officiis ullam fuga expedita quis accusamus culpa laboriosam aliquid quisquam?
+            Corrupti et quis, asperiores voluptatibus optio necessitatibus alias consequatur cumque iusto obcaecati ea
+            neque illum praesentium reiciendis qui ab deleniti consectetur eos totam ad. Reprehenderit exercitationem
+            nemo, quam nesciunt blanditiis earum, et repellat tempora obcaecati doloribus voluptate quia! Repudiandae
+            atque voluptatibus culpa assumenda id nisi mollitia quia architecto numquam, eius eveniet ab. Ut porro vitae
+            eius molestias magni repellendus sed nemo autem totam dolores quas qui cumque pariatur, distinctio optio
+            velit vero deleniti obcaecati. Reiciendis laboriosam officiis quidem fuga a dicta quia optio nesciunt velit
+            deleniti expedita distinctio nihil alias doloremque dolorum asperiores dolorem, perferendis animi nisi
+            doloribus ex tenetur voluptate voluptates pariatur? Similique nostrum earum voluptatibus autem quasi saepe
+            itaque consequatur unde? Eius odit ipsa, repellat maxime excepturi possimus aut mollitia nisi numquam.
+            Veniam ipsam dicta, ab atque eos ipsa voluptatum perspiciatis dolorem quisquam, ullam dolore iusto sed unde
+            quibusdam aut. Rerum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus atque vel quia rerum sunt labore consequuntur
+            est temporibus perspiciatis placeat doloremque reiciendis, excepturi facilis nemo sequi ad iure magnam et.
+            Magnam officia, consequatur, aut sit impedit iusto magni ratione cupiditate dolorum tempore enim distinctio
+            itaque explicabo, saepe officiis ullam fuga expedita quis accusamus culpa laboriosam aliquid quisquam?
+            Corrupti et quis, asperiores voluptatibus optio necessitatibus alias consequatur cumque iusto obcaecati ea
+            neque illum praesentium reiciendis qui ab deleniti consectetur eos totam ad. Reprehenderit exercitationem
+            nemo, quam nesciunt blanditiis earum, et repellat tempora obcaecati doloribus voluptate quia! Repudiandae
+            atque voluptatibus culpa assumenda id nisi mollitia quia architecto numquam, eius eveniet ab. Ut porro vitae
+            eius molestias magni repellendus sed nemo autem totam dolores quas qui cumque pariatur, distinctio optio
+            velit vero deleniti obcaecati. Reiciendis laboriosam officiis quidem fuga a dicta quia optio nesciunt velit
+            deleniti expedita distinctio nihil alias doloremque dolorum asperiores dolorem, perferendis animi nisi
+            doloribus ex tenetur voluptate voluptates pariatur? Similique nostrum earum voluptatibus autem quasi saepe
+            itaque consequatur unde? Eius odit ipsa, repellat maxime excepturi possimus aut mollitia nisi numquam.
+            Veniam ipsam dicta, ab atque eos ipsa voluptatum perspiciatis dolorem quisquam, ullam dolore iusto sed unde
+            quibusdam aut. Rerum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus atque vel quia rerum sunt labore consequuntur
+            est temporibus perspiciatis placeat doloremque reiciendis, excepturi facilis nemo sequi ad iure magnam et.
+            Magnam officia, consequatur, aut sit impedit iusto magni ratione cupiditate dolorum tempore enim distinctio
+            itaque explicabo, saepe officiis ullam fuga expedita quis accusamus culpa laboriosam aliquid quisquam?
+            Corrupti et quis, asperiores voluptatibus optio necessitatibus alias consequatur cumque iusto obcaecati ea
+            neque illum praesentium reiciendis qui ab deleniti consectetur eos totam ad. Reprehenderit exercitationem
+            nemo, quam nesciunt blanditiis earum, et repellat tempora obcaecati doloribus voluptate quia! Repudiandae
+            atque voluptatibus culpa assumenda id nisi mollitia quia architecto numquam, eius eveniet ab. Ut porro vitae
+            eius molestias magni repellendus sed nemo autem totam dolores quas qui cumque pariatur, distinctio optio
+            velit vero deleniti obcaecati. Reiciendis laboriosam officiis quidem fuga a dicta quia optio nesciunt velit
+            deleniti expedita distinctio nihil alias doloremque dolorum asperiores dolorem, perferendis animi nisi
+            doloribus ex tenetur voluptate voluptates pariatur? Similique nostrum earum voluptatibus autem quasi saepe
+            itaque consequatur unde? Eius odit ipsa, repellat maxime excepturi possimus aut mollitia nisi numquam.
+            Veniam ipsam dicta, ab atque eos ipsa voluptatum perspiciatis dolorem quisquam, ullam dolore iusto sed unde
+            quibusdam aut. Rerum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus atque vel quia rerum sunt labore consequuntur
+            est temporibus perspiciatis placeat doloremque reiciendis, excepturi facilis nemo sequi ad iure magnam et.
+            Magnam officia, consequatur, aut sit impedit iusto magni ratione cupiditate dolorum tempore enim distinctio
+            itaque explicabo, saepe officiis ullam fuga expedita quis accusamus culpa laboriosam aliquid quisquam?
+            Corrupti et quis, asperiores voluptatibus optio necessitatibus alias consequatur cumque iusto obcaecati ea
+            neque illum praesentium reiciendis qui ab deleniti consectetur eos totam ad. Reprehenderit exercitationem
+            nemo, quam nesciunt blanditiis earum, et repellat tempora obcaecati doloribus voluptate quia! Repudiandae
+            atque voluptatibus culpa assumenda id nisi mollitia quia architecto numquam, eius eveniet ab. Ut porro vitae
+            eius molestias magni repellendus sed nemo autem totam dolores quas qui cumque pariatur, distinctio optio
+            velit vero deleniti obcaecati. Reiciendis laboriosam officiis quidem fuga a dicta quia optio nesciunt velit
+            deleniti expedita distinctio nihil alias doloremque dolorum asperiores dolorem, perferendis animi nisi
+            doloribus ex tenetur voluptate voluptates pariatur? Similique nostrum earum voluptatibus autem quasi saepe
+            itaque consequatur unde? Eius odit ipsa, repellat maxime excepturi possimus aut mollitia nisi numquam.
+            Veniam ipsam dicta, ab atque eos ipsa voluptatum perspiciatis dolorem quisquam, ullam dolore iusto sed unde
+            quibusdam aut. Rerum.</p>
+    </div>
+    <script>
+        
+            const btnNav = document.querySelector("#btnNav");
+            const sidenav = document.querySelector(".side-nav");
+            const navoverlay = document.querySelector(".nav-overlay");
+            btnNav.addEventListener('click', () => {
+                sidenav.classList.add("open");
+            });
+            navoverlay.addEventListener('click', () => {
+                sidenav.classList.remove("open");
+            });
+        
+    </script>
+</body>
+
+</html>
